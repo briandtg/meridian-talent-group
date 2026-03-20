@@ -7,14 +7,14 @@
 <meta name="description" content="Full-service influencer marketing across YouTube, TikTok, Instagram, and Podcasts. Connecting the world's leading brands with the creators who move culture.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Outfit:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 
 :root {
   --bg-void: #050507;
   --bg-primary: #08080c;
-  --bg-elevated: #0e1019;
+  --bg-elevated: #0a0c15;
   --bg-card: #12141f;
   --bg-card-hover: #181a28;
   --text-primary: #e8e6e3;
@@ -26,7 +26,7 @@
   --accent-glow: rgba(6, 182, 212, 0.08);
   --accent-glow-strong: rgba(6, 182, 212, 0.15);
   --border-subtle: rgba(255,255,255,0.04);
-  --border-accent: rgba(6, 182, 212, 0.2);
+  --border-accent: rgba(6, 182, 212, 0.25);
   --font-display: 'Cormorant Garamond', 'Georgia', serif;
   --font-body: 'Outfit', system-ui, -apple-system, sans-serif;
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
@@ -288,8 +288,9 @@ body::before {
 }
 
 .hero__cta:hover {
-  color: var(--bg-primary);
+  color: #ffffff;
   border-color: var(--accent);
+  letter-spacing: 0.25em;
 }
 
 .hero__cta:hover::before {
@@ -350,9 +351,9 @@ body::before {
 }
 
 .reveal-stagger.visible > *:nth-child(1) { transition-delay: 0s; }
-.reveal-stagger.visible > *:nth-child(2) { transition-delay: 0.08s; }
-.reveal-stagger.visible > *:nth-child(3) { transition-delay: 0.16s; }
-.reveal-stagger.visible > *:nth-child(4) { transition-delay: 0.24s; }
+.reveal-stagger.visible > *:nth-child(2) { transition-delay: 0.1s; }
+.reveal-stagger.visible > *:nth-child(3) { transition-delay: 0.2s; }
+.reveal-stagger.visible > *:nth-child(4) { transition-delay: 0.3s; }
 
 .reveal-stagger.visible > * {
   opacity: 1;
@@ -396,22 +397,39 @@ body::before {
   top: 20%;
   height: 60%;
   width: 1px;
-  background: var(--border-subtle);
+  background: rgba(255,255,255,0.08);
 }
 
 .metrics__number {
-  font-family: var(--font-display);
-  font-size: clamp(2.5rem, 4vw, 3.8rem);
-  font-weight: 300;
+  font-family: var(--font-body);
+  font-size: clamp(2.8rem, 4.5vw, 4.2rem);
+  font-weight: 600;
   color: var(--text-primary);
   line-height: 1;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
   font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+  position: relative;
+  display: inline-block;
 }
 
 .metrics__number .suffix {
-  font-size: 0.65em;
+  font-size: 0.55em;
+  font-weight: 400;
   color: var(--accent);
+}
+
+.metrics__underline {
+  display: block;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-bright));
+  margin: 0.6rem auto 0;
+  transition: width 2s var(--ease-out-expo);
+}
+
+.metrics.counted .metrics__underline {
+  width: 40px;
 }
 
 .metrics__label {
@@ -420,6 +438,7 @@ body::before {
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--text-tertiary);
+  margin-top: 0.6rem;
 }
 
 /* ═══════════ TRUSTED BY ═══════════ */
@@ -428,9 +447,8 @@ body::before {
 }
 
 .trusted__grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
   gap: 0;
   max-width: 1100px;
   margin: 0 auto;
@@ -440,37 +458,35 @@ body::before {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2rem 2.5rem;
-  opacity: 0.35;
+  padding: 2rem 1.5rem;
+  opacity: 0.4;
   transition: opacity 0.4s ease;
   user-select: none;
 }
 
 .trusted__item:hover {
-  opacity: 0.7;
+  opacity: 0.75;
 }
 
-.trusted__name {
-  font-size: 1.15rem;
+/* SVG brand logos */
+.trusted__logo {
+  height: 26px;
+  width: auto;
+  max-width: 100px;
+  fill: white;
+}
+
+/* Text wordmark fallbacks */
+.trusted__wordmark {
   color: var(--text-primary);
   white-space: nowrap;
 }
 
-/* Brand-specific typography */
-.brand-nord { font-family: var(--font-body); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; font-size: 1rem; }
-.brand-skillshare { font-family: var(--font-body); font-weight: 500; letter-spacing: 0.02em; font-size: 1.1rem; }
-.brand-audible { font-family: var(--font-body); font-weight: 300; letter-spacing: 0.04em; text-transform: lowercase; font-size: 1.2rem; }
-.brand-hellofresh { font-family: var(--font-body); font-weight: 500; font-size: 1.05rem; }
-.brand-squarespace { font-family: var(--font-body); font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase; font-size: 0.85rem; }
-.brand-expressvpn { font-family: var(--font-body); font-weight: 500; letter-spacing: 0.02em; font-size: 1.05rem; }
-.brand-loreal { font-family: var(--font-display); font-weight: 400; letter-spacing: 0.15em; text-transform: uppercase; font-size: 1.2rem; font-style: italic; }
-.brand-samsung { font-family: var(--font-body); font-weight: 300; letter-spacing: 0.25em; text-transform: uppercase; font-size: 1rem; }
-.brand-adobe { font-family: var(--font-body); font-weight: 400; letter-spacing: 0.05em; font-size: 1.15rem; }
-.brand-spotify { font-family: var(--font-body); font-weight: 500; letter-spacing: 0.02em; font-size: 1.15rem; }
-.brand-calm { font-family: var(--font-display); font-weight: 300; letter-spacing: 0.08em; text-transform: lowercase; font-size: 1.35rem; }
-.brand-headspace { font-family: var(--font-body); font-weight: 400; letter-spacing: 0.02em; text-transform: lowercase; font-size: 1.1rem; }
-.brand-gaia { font-family: var(--font-display); font-weight: 400; letter-spacing: 0.2em; text-transform: uppercase; font-size: 1.15rem; }
-.brand-mindvalley { font-family: var(--font-body); font-weight: 300; letter-spacing: 0.06em; font-size: 1.1rem; }
+.wm-loreal { font-family: var(--font-display); font-weight: 400; letter-spacing: 0.15em; text-transform: uppercase; font-size: 1.15rem; font-style: italic; }
+.wm-adobe { font-family: var(--font-body); font-weight: 400; letter-spacing: 0.08em; font-size: 1.1rem; }
+.wm-calm { font-family: var(--font-display); font-weight: 300; letter-spacing: 0.1em; text-transform: lowercase; font-size: 1.3rem; }
+.wm-gaia { font-family: var(--font-display); font-weight: 400; letter-spacing: 0.22em; text-transform: uppercase; font-size: 1.1rem; }
+.wm-mindvalley { font-family: var(--font-body); font-weight: 300; letter-spacing: 0.06em; font-size: 1.05rem; }
 
 /* ═══════════ DIVIDER ═══════════ */
 .divider {
@@ -478,6 +494,74 @@ body::before {
   height: 60px;
   margin: 0 auto;
   background: linear-gradient(to bottom, transparent, var(--border-accent), transparent);
+}
+
+/* ═══════════ WORK / CASE STUDIES ═══════════ */
+.work {
+  padding: 7rem 0;
+}
+
+.work__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.work__card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  padding: 2.5rem 2rem;
+  position: relative;
+  transition: all 0.5s var(--ease-out-expo);
+}
+
+.work__card:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-accent);
+}
+
+.work__category {
+  font-size: 0.6rem;
+  font-weight: 400;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--accent-dim);
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.work__title {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 400;
+  color: var(--text-primary);
+  margin-bottom: 1.8rem;
+  line-height: 1.3;
+}
+
+.work__stats {
+  display: flex;
+  gap: 1.5rem;
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 1.5rem;
+}
+
+.work__stat-number {
+  font-family: var(--font-body);
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  display: block;
+  line-height: 1;
+  margin-bottom: 0.35rem;
+}
+
+.work__stat-label {
+  font-size: 0.58rem;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
 }
 
 /* ═══════════ SERVICES ═══════════ */
@@ -551,6 +635,7 @@ body::before {
 .press {
   padding: 5rem 0;
   border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
 }
 
 .press__grid {
@@ -562,13 +647,13 @@ body::before {
 }
 
 .press__item {
-  opacity: 0.25;
+  opacity: 0.4;
   transition: opacity 0.4s ease;
   user-select: none;
 }
 
 .press__item:hover {
-  opacity: 0.5;
+  opacity: 0.7;
 }
 
 .press__name {
@@ -576,10 +661,10 @@ body::before {
   white-space: nowrap;
 }
 
-.press-forbes { font-family: var(--font-display); font-size: 1.5rem; font-weight: 400; font-style: italic; letter-spacing: 0.04em; }
+.press-forbes { font-family: var(--font-display); font-size: 1.6rem; font-weight: 400; font-style: italic; letter-spacing: 0.04em; }
 .press-bi { font-family: var(--font-body); font-size: 0.95rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; }
 .press-adweek { font-family: var(--font-body); font-size: 1.1rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
-.press-drum { font-family: var(--font-display); font-size: 1.3rem; font-weight: 500; letter-spacing: 0.02em; }
+.press-drum { font-family: var(--font-display); font-size: 1.4rem; font-weight: 500; letter-spacing: 0.02em; }
 
 /* ═══════════ FOOTER ═══════════ */
 .footer {
@@ -711,19 +796,22 @@ body::before {
     gap: 3rem 1.5rem;
   }
 
-  .metrics__item:nth-child(2)::after { display: none; }
-
   .metrics__item::after {
     display: none;
   }
 
-  .services__grid {
+  .services__grid,
+  .work__grid {
     grid-template-columns: 1fr;
     gap: 1.2rem;
   }
 
+  .trusted__grid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  }
+
   .trusted__item {
-    padding: 1.5rem 1.8rem;
+    padding: 1.5rem 1rem;
   }
 
   .press__grid {
@@ -780,12 +868,20 @@ body::before {
     padding: 5rem 0;
   }
 
-  .trusted__item {
-    padding: 1.2rem 1.4rem;
+  .trusted__grid {
+    grid-template-columns: repeat(3, 1fr);
   }
 
-  .trusted__name {
-    font-size: 0.95rem;
+  .trusted__item {
+    padding: 1.2rem 0.8rem;
+  }
+
+  .trusted__logo {
+    height: 20px;
+  }
+
+  .trusted__wordmark {
+    font-size: 0.85rem !important;
   }
 
   .footer__top {
@@ -799,6 +895,10 @@ body::before {
   .section__label::before,
   .section__label::after {
     display: none;
+  }
+
+  .work__stats {
+    gap: 1rem;
   }
 }
 
@@ -823,6 +923,7 @@ body::before {
     <div class="nav__inner">
       <a href="#" class="nav__logo">Meridian Talent Group</a>
       <ul class="nav__links" id="navLinks">
+        <li><a href="#work">Work</a></li>
         <li><a href="#services">Services</a></li>
         <li><a href="#partners">Partners</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -851,18 +952,22 @@ body::before {
     <div class="metrics__grid reveal-stagger" id="metricsGrid">
       <div class="metrics__item">
         <div class="metrics__number"><span class="counter" data-target="8500">0</span><span class="suffix">+</span></div>
+        <span class="metrics__underline"></span>
         <div class="metrics__label">Campaigns Managed</div>
       </div>
       <div class="metrics__item">
         <div class="metrics__number"><span class="counter" data-target="12000">0</span><span class="suffix">+</span></div>
+        <span class="metrics__underline"></span>
         <div class="metrics__label">Creator Relationships</div>
       </div>
       <div class="metrics__item">
-        <div class="metrics__number"><span class="counter" data-target="6" data-suffix="B">0</span><span class="suffix">B+ views</span></div>
+        <div class="metrics__number"><span class="counter" data-target="6">0</span><span class="suffix">B+ views</span></div>
+        <span class="metrics__underline"></span>
         <div class="metrics__label">Total Campaign Reach</div>
       </div>
       <div class="metrics__item">
         <div class="metrics__number"><span class="counter" data-target="9">0</span></div>
+        <span class="metrics__underline"></span>
         <div class="metrics__label">Years in Operation</div>
       </div>
     </div>
@@ -874,20 +979,145 @@ body::before {
   <div class="container container--wide">
     <p class="section__label reveal">Trusted by Leading Brands</p>
     <div class="trusted__grid reveal" id="trustedGrid">
-      <div class="trusted__item"><span class="trusted__name brand-nord">NordVPN</span></div>
-      <div class="trusted__item"><span class="trusted__name brand-skillshare">Skillshare</span></div>
-      <div class="trusted__item"><span class="trusted__name brand-audible">audible</span></div>
-      <div class="trusted__item"><span class="trusted__name brand-hellofresh">HelloFresh</span></div>
-      <div class="trusted__item"><span class="trusted__name brand-squarespace">Squarespace</span></div>
-      <div class="trusted__item"><span class="trusted__name brand-expressvpn">ExpressVPN</span></div>
-      <div class="trusted__item"><span class="trusted__name brand-loreal">L'Or&eacute;al</span></div>
-      <div class="trusted__item"><span class="trusted__name brand-samsung">Samsung</span></div>
-      <div class="trusted__item"><span class="trusted__name brand-adobe">Adobe</span></div>
-      <div class="trusted__item"><span class="trusted__name brand-spotify">Spotify</span></div>
-      <div class="trusted__item"><span class="trusted__name brand-calm">calm</span></div>
-      <div class="trusted__item"><span class="trusted__name brand-headspace">headspace</span></div>
-      <div class="trusted__item"><span class="trusted__name brand-gaia">Gaia</span></div>
-      <div class="trusted__item"><span class="trusted__name brand-mindvalley">Mindvalley</span></div>
+      <!-- NordVPN -->
+      <div class="trusted__item">
+        <svg class="trusted__logo" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-label="NordVPN">
+          <path d="M2.2838 21.5414A11.9866 11.9866 0 010 14.4832C0 7.8418 5.3727 2.4586 12 2.4586c6.6279 0 12 5.3832 12 12.0246a11.9853 11.9853 0 01-2.2838 7.0582l-5.7636-9.3783-.5565.9419.5645 2.6186L12 8.9338l-2.45 4.1447.5707 2.6451-2.0764-3.5555-5.7605 9.3733z"/>
+        </svg>
+      </div>
+      <!-- Skillshare -->
+      <div class="trusted__item">
+        <svg class="trusted__logo" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-label="Skillshare" style="height:18px;">
+          <path d="M9.783 6.056a.768.768 0 0 0-.773.764c0 .421.346.763.773.763a.768.768 0 0 0 .772-.763.768.768 0 0 0-.772-.764zM1.895 8.1C.821 8.1.111 8.622.111 9.413c0 .634.381 1.06 1.048 1.225l.836.21c.248.078.348.2.347.39 0 .21-.21.327-.424.337-.31.014-.537-.154-.554-.422H0c.02.8.802 1.362 1.974 1.362 1.108 0 1.827-.513 1.827-1.382 0-.634-.399-1.034-1.057-1.208l-.81-.224c-.274-.081-.369-.202-.369-.372 0-.185.146-.294.335-.316.274-.032.486.087.486.382v.02H3.78v-.02h-.001c0-.834-.706-1.294-1.884-1.294zm2.485.116v4.19h1.318v-1.821l1.274 1.82h1.62l-1.629-2.201 1.604-1.977h-1.56l-1.309 1.76v-1.77zm4.744 0v4.19h1.318v-4.19zm2.084 0v4.191h3.218v-1.244h-1.892V8.217zm3.937 0v4.191h3.218v-1.244h-1.892V8.217zm-13.25 5.308c-1.074 0-1.784.522-1.784 1.312 0 .635.381 1.06 1.048 1.225l.836.21c.248.078.348.2.347.39 0 .21-.21.328-.424.338-.31.014-.537-.155-.554-.423H0c.02.8.802 1.362 1.974 1.362 1.108 0 1.827-.512 1.827-1.382 0-.634-.399-1.034-1.057-1.207l-.81-.225c-.274-.081-.369-.201-.369-.371 0-.186.146-.295.335-.317.274-.032.486.087.486.383v.019H3.78v-.02h-.001c0-.834-.706-1.294-1.884-1.294zm9.19.015c-1.215 0-1.986.953-1.986 2.202 0 1.257.72 2.202 1.968 2.201.58 0 1.1-.286 1.326-.702v.59h1.318v-4.179h-1.318v.599c-.225-.425-.702-.711-1.309-.711zm8.751 0c-1.36 0-2.253.832-2.253 2.202 0 1.396.875 2.202 2.296 2.202 1.11 0 1.951-.546 2.08-1.37h-1.3c-.113.26-.373.373-.78.373-.59 0-.954-.295-.98-.841h3.087c.026-.234.035-.364.035-.581 0-1.179-.884-1.985-2.185-1.985zm-2.87.043c-.51 0-1.005.32-1.152.945v-.876h-1.327v4.179h1.327v-1.613c0-.927.382-1.395 1.1-1.395a2.8 2.8 0 0 1 .393.025l.007-1.23a1.28 1.28 0 0 0-.347-.035zM4.38 13.65v4.191h1.3v-1.485h1.59v1.485h1.3V13.65h-1.3v1.505H5.68V13.65zm15.448.781c.564 0 .876.295.885.85H18.9c.008-.511.356-.85.927-.85zm-8.38.217c.66 0 .997.494.997 1.093 0 .607-.337 1.1-.997 1.1-.616 0-.997-.468-.997-1.1 0-.634.382-1.093.997-1.093zm11.78 1.741a.768.768 0 0 0-.772.764c0 .422.345.764.772.764a.768.768 0 0 0 .772-.764.768.768 0 0 0-.772-.764z"/>
+        </svg>
+      </div>
+      <!-- Audible -->
+      <div class="trusted__item">
+        <svg class="trusted__logo" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-label="Audible">
+          <path d="M12.008 17.362L24 9.885v2.028l-11.992 7.509L0 11.912V9.886l12.008 7.477zm0-9.378c-2.709 0-5.085 1.363-6.448 3.47.111-.111.175-.175.286-.254 3.374-2.804 8.237-2.17 10.883 1.362l1.758-1.124c-1.394-2.044-3.786-3.454-6.48-3.454m0 3.47a4.392 4.392 0 0 0-3.548 1.821 3.597 3.597 0 0 1 2.139-.697c1.299 0 2.455.666 3.232 1.79l1.679-1.045c-.729-1.157-2.028-1.87-3.501-1.87M3.897 8.412c4.943-3.897 11.929-2.836 15.652 2.344l.031.032 1.822-1.125a11.214 11.214 0 0 0-9.394-5.085c-3.897 0-7.366 1.996-9.394 5.085.364-.412.824-.903 1.283-1.251"/>
+        </svg>
+      </div>
+      <!-- HelloFresh -->
+      <div class="trusted__item">
+        <svg class="trusted__logo" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-label="HelloFresh">
+          <path d="M9.7894 22.2329c-.9661-.0974-2.0001-.326-3.042-.7589-.5912-.2456-1.1673-.5843-1.2123-.6109-.362-.2057-.6568-.457-1.2135-.7269-.7048-.3416-1.3836-.5276-2.1106-.611-.9842-.0661-1.038.0124-1.319-.0745-.1676-.0545-.3188-.1205-.495-.2848-.0526-.049-.125-.1304-.1607-.1808-.125-.1763-.1744-.3314-.194-.3997-.0284-.0981-.0424-.1563-.0423-.3324 0-.1565.0152-.2397.035-.3116.0763-.2788.173-.3408.4299-.8472.3285-.6476.5238-1.285.6176-1.9564a5.7292 5.7292 0 0 0 .0554-1.017c-.015-.5062-.0383-.6133-.0392-1.0444-.0026-1.2549.2374-2.3546.5533-3.2859.2061-.6079.3889-1.007.6046-1.4333.5845-1.1551 1.5013-2.4784 2.9354-3.6924.7732-.6545 1.9737-1.5002 3.5538-2.1176 1.3446-.5253 2.5225-.7015 3.064-.7614.664-.087 1.8067-.1234 2.975.0535.9966.151 2.2445.4867 3.5131 1.2.4312.2424.6815.4377 1.014.6296.814.4697 1.6498.7054 2.4477.8015.424.051 1.0618.0047 1.302.0666.1477.0381.2551.0862.3896.1755.1135.0755.3629.2761.4912.6485.061.1772.1243.6076-.0987.9911-.0365.063-.1066.183-.1557.2669-.0491.0838-.1423.2622-.2072.3964-.6611 1.3677-.6465 2.5461-.6009 3.263.0534.84.05 2.2341-.5417 3.9644-.1037.3032-.3364.9313-.7023 1.6143-.8281 1.5455-1.876 2.6331-2.5374 3.2256-1.474 1.3204-2.9634 2.038-3.9265 2.4021-.8975.3393-1.5834.5095-2.3024.6327-.6934.1188-1.8193.2425-3.0802.1154z"/>
+        </svg>
+      </div>
+      <!-- Squarespace -->
+      <div class="trusted__item">
+        <svg class="trusted__logo" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-label="Squarespace">
+          <path d="M22.655 8.719c-1.802-1.801-4.726-1.801-6.564 0l-7.351 7.35c-.45.45-.45 1.2 0 1.65.45.449 1.2.449 1.65 0l7.351-7.351c.899-.899 2.362-.899 3.264 0 .9.9.9 2.364 0 3.264l-7.239 7.239c.9.899 2.362.899 3.263 0l5.589-5.589c1.836-1.838 1.836-4.763.037-6.563zm-2.475 2.437c-.451-.45-1.201-.45-1.65 0l-7.354 7.389c-.9.899-2.361.899-3.262 0-.45-.45-1.2-.45-1.65 0s-.45 1.2 0 1.649c1.801 1.801 4.726 1.801 6.564 0l7.351-7.35c.449-.487.449-1.239.001-1.688zm-2.439-7.35c-1.801-1.801-4.726-1.801-6.564 0l-7.351 7.351c-.45.449-.45 1.199 0 1.649s1.2.45 1.65 0l7.395-7.351c.9-.899 2.371-.899 3.27 0 .451.45 1.201.45 1.65 0 .421-.487.421-1.199-.029-1.649h-.021zm-2.475 2.437c-.45-.45-1.2-.45-1.65 0l-7.351 7.389c-.899.9-2.363.9-3.265 0-.9-.899-.9-2.363 0-3.264l7.239-7.239c-.9-.9-2.362-.9-3.263 0L1.35 8.719c-1.8 1.8-1.8 4.725 0 6.563 1.801 1.801 4.725 1.801 6.564 0l7.35-7.351c.451-.488.451-1.238 0-1.688h.002z"/>
+        </svg>
+      </div>
+      <!-- ExpressVPN -->
+      <div class="trusted__item">
+        <svg class="trusted__logo" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-label="ExpressVPN">
+          <path d="M11.705 2.349a4.874 4.874 0 00-4.39 2.797L6.033 7.893h14.606c.41 0 .692.308.692.668 0 .359-.282.666-.692.666H2.592L0 14.772h2.824c-.796 1.72-1.002 2.567-1.002 3.26 0 2.105 1.72 3.62 4.416 3.62h8.239c1.771 0 3.337-1.412 3.337-3.03 0-1.411-1.206-2.515-2.772-2.515H5.596c-.873 0-1.284-.59-.924-1.335h11.859c4.004 0 7.469-3.029 7.469-6.802 0-3.183-2.618-5.621-6.16-5.621z"/>
+        </svg>
+      </div>
+      <!-- L'Oreal (text) -->
+      <div class="trusted__item">
+        <span class="trusted__wordmark wm-loreal">L'Or&eacute;al</span>
+      </div>
+      <!-- Samsung -->
+      <div class="trusted__item">
+        <svg class="trusted__logo" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-label="Samsung" style="height:16px;max-width:120px;">
+          <path d="M19.8166 10.2808l.0459 2.6934h-.023l-.7793-2.6934h-1.2837v3.3925h.8481l-.0458-2.785h.023l.8366 2.785h1.2264v-3.3925zm-16.149 0l-.6418 3.427h.9284l.4699-3.1175h.0229l.4585 3.1174h.9169l-.6304-3.4269zm5.1805 0l-.424 2.6132h-.023l-.424-2.6132H6.5788l-.0688 3.427h.8596l.023-3.0832h.0114l.573 3.0831h.8711l.5731-3.083h.023l.0228 3.083h.8596l-.0802-3.4269zm-7.2664 2.4527c.0343.0802.0229.1949.0114.2522-.0229.1146-.1031.2292-.3324.2292-.2177 0-.3438-.126-.3438-.3095v-.3323H0v.2636c0 .7679.6074.9971 1.2493.9971.6189 0 1.1346-.2178 1.2149-.7794.0458-.298.0114-.4928 0-.5616-.1605-.722-1.467-.9283-1.5588-1.3295-.0114-.0688-.0114-.1375 0-.1834.023-.1146.1032-.2292.3095-.2292.2063 0 .321.126.321.3095v.2063h.8595v-.2407c0-.745-.6762-.8596-1.1576-.8596-.6074 0-1.1117.2063-1.2034.7564-.023.149-.0344.2866.0114.4585.1376.7106 1.364.9169 1.5358 1.3524m11.152 0c.0343.0803.0228.1834.0114.2522-.023.1146-.1032.2292-.3324.2292-.2178 0-.3438-.126-.3438-.3095v-.3323h-.917v.2636c0 .7564.596.9857 1.2379.9857.6189 0 1.1232-.2063 1.2034-.7794.0459-.298.0115-.4814 0-.5616-.1375-.7106-1.4327-.9284-1.5243-1.318-.0115-.0688-.0115-.1376 0-.1835.0229-.1146.1031-.2292.3094-.2292.1948 0 .321.126.321.3095v.2063h.848v-.2407c0-.745-.6647-.8596-1.146-.8596-.6075 0-1.1004.1948-1.192.7564-.023.149-.023.2866.0114.4585.1376.7106 1.341.9054 1.513 1.3524m2.8882.4585c.2407 0 .3094-.1605.3323-.2522.0115-.0343.0115-.0917.0115-.126v-2.533h.871v2.4642c0 .0688 0 .1948-.0114.2292-.0573.6419-.5616.8482-1.192.8482-.6303 0-1.1346-.2063-1.192-.8482 0-.0344-.0114-.1604-.0114-.2292v-2.4642h.871v2.533c0 .0458 0 .0916.0115.126 0 .0917.0688.2522.3095.2522m7.1518-.0344c.2522 0 .3324-.1605.3553-.2522.0115-.0343.0115-.0917.0115-.126v-.4929h-.3553v-.5043H24v.917c0 .0687 0 .1145-.0115.2292-.0573.6303-.596.8481-1.2034.8481-.6075 0-1.1461-.2178-1.2034-.8481-.0115-.1147-.0115-.1605-.0115-.2293v-1.444c0-.0574.0115-.172.0115-.2293.0802-.6419.596-.8482 1.2034-.8482s1.1347.2063 1.2034.8482c.0115.1031.0115.2292.0115.2292v.1146h-.8596v-.1948s0-.0803-.0115-.1261c-.0114-.0802-.0802-.2521-.3438-.2521-.2521 0-.321.1604-.3438.2521-.0115.0458-.0115.1032-.0115.1605v1.5702c0 .0458 0 .0916.0115.126 0 .0917.0917.2522.3323.2522"/>
+        </svg>
+      </div>
+      <!-- Adobe (text) -->
+      <div class="trusted__item">
+        <span class="trusted__wordmark wm-adobe">Adobe</span>
+      </div>
+      <!-- Spotify -->
+      <div class="trusted__item">
+        <svg class="trusted__logo" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-label="Spotify">
+          <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
+        </svg>
+      </div>
+      <!-- Calm (text) -->
+      <div class="trusted__item">
+        <span class="trusted__wordmark wm-calm">calm</span>
+      </div>
+      <!-- Headspace -->
+      <div class="trusted__item">
+        <svg class="trusted__logo" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-label="Headspace">
+          <path d="M23.9711 11.8612c.279 3.8878-1.5272 6.0933-2.6155 7.6357-1.694 1.7856-3.8397 4.2203-9.291 4.3565-4.6237.1827-6.8957-1.8508-8.8034-3.617-2.487-2.7336-3.1366-4.3512-3.261-8.3752-.0118-2.467.9397-4.9292 2.6025-7.0954C4.934 1.4736 8.6408.3699 12.0646.1426c3.5923-.1392 6.4493 1.6723 8.3993 3.624 2.4963 2.632 3.2629 4.8923 3.5054 8.0946Z"/>
+        </svg>
+      </div>
+      <!-- Gaia (text) -->
+      <div class="trusted__item">
+        <span class="trusted__wordmark wm-gaia">Gaia</span>
+      </div>
+      <!-- Mindvalley (text) -->
+      <div class="trusted__item">
+        <span class="trusted__wordmark wm-mindvalley">Mindvalley</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ════════════════════ SELECTED WORK ════════════════════ -->
+<section class="work section" id="work">
+  <div class="container">
+    <p class="section__label reveal">Selected Work</p>
+    <div class="work__grid reveal-stagger">
+      <div class="work__card">
+        <span class="work__category">YouTube Campaign</span>
+        <h3 class="work__title">NordVPN &times; Tech &amp; Lifestyle Creators</h3>
+        <div class="work__stats">
+          <div class="work__stat">
+            <span class="work__stat-number">42M</span>
+            <span class="work__stat-label">Views</span>
+          </div>
+          <div class="work__stat">
+            <span class="work__stat-number">2.1%</span>
+            <span class="work__stat-label">CTR</span>
+          </div>
+          <div class="work__stat">
+            <span class="work__stat-number">186</span>
+            <span class="work__stat-label">Creators</span>
+          </div>
+        </div>
+      </div>
+      <div class="work__card">
+        <span class="work__category">Multi-Platform Launch</span>
+        <h3 class="work__title">Samsung Galaxy &times; Creator Collective</h3>
+        <div class="work__stats">
+          <div class="work__stat">
+            <span class="work__stat-number">128M</span>
+            <span class="work__stat-label">Reach</span>
+          </div>
+          <div class="work__stat">
+            <span class="work__stat-number">8.2M</span>
+            <span class="work__stat-label">Engagements</span>
+          </div>
+          <div class="work__stat">
+            <span class="work__stat-number">94</span>
+            <span class="work__stat-label">Creators</span>
+          </div>
+        </div>
+      </div>
+      <div class="work__card">
+        <span class="work__category">Wellness &amp; Mindfulness</span>
+        <h3 class="work__title">Calm &times; Wellness Creators</h3>
+        <div class="work__stats">
+          <div class="work__stat">
+            <span class="work__stat-number">$4.2M</span>
+            <span class="work__stat-label">Revenue</span>
+          </div>
+          <div class="work__stat">
+            <span class="work__stat-number">340%</span>
+            <span class="work__stat-label">ROAS</span>
+          </div>
+          <div class="work__stat">
+            <span class="work__stat-number">62</span>
+            <span class="work__stat-label">Creators</span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -975,18 +1205,14 @@ body::before {
   const navToggle = document.getElementById('navToggle');
   const navLinks = document.getElementById('navLinks');
 
-  let lastScroll = 0;
   window.addEventListener('scroll', () => {
-    const y = window.scrollY;
-    nav.classList.toggle('scrolled', y > 60);
-    lastScroll = y;
+    nav.classList.toggle('scrolled', window.scrollY > 60);
   }, { passive: true });
 
   navToggle.addEventListener('click', () => {
     navLinks.classList.toggle('open');
   });
 
-  // close mobile menu on link click
   navLinks.querySelectorAll('a').forEach(a => {
     a.addEventListener('click', () => navLinks.classList.remove('open'));
   });
@@ -1011,6 +1237,9 @@ body::before {
   function animateCounters() {
     if (countersDone) return;
     countersDone = true;
+
+    // Trigger underline animation
+    document.querySelector('.metrics').classList.add('counted');
 
     counters.forEach(counter => {
       const target = parseInt(counter.dataset.target, 10);
@@ -1057,7 +1286,9 @@ body::before {
   // ── Smooth anchor links ──
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
-      const target = document.querySelector(this.getAttribute('href'));
+      const href = this.getAttribute('href');
+      if (href === '#') return;
+      const target = document.querySelector(href);
       if (target) {
         e.preventDefault();
         target.scrollIntoView({ behavior: 'smooth', block: 'start' });

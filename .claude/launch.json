@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "agency-site",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "3456", "--directory", "/home/brian/projects/dtg/SaaS_Venture_GTM/agency_site"],
+      "port": 3456
+    }
+  ]
+}
